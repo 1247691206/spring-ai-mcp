@@ -15,6 +15,7 @@
 
     <modules>
       <module>spring-mvc-service</module>
+        <module>spring-ai-proxy</module>
     </modules>
 
 </project>

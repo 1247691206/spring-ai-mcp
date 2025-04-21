@@ -1,0 +1,30 @@
+[
+  {
+    "name": "getWeatherForecastByLocation",
+    "description": "Get weather forecast for a specific latitude/longitude",
+    "inputSchema": "{\n      \"type\": \"object\",\n      \"properties\": {\n        \"latitude\": {\n          \"type\": \"number\",\n          \"format\": \"double\"\n        },\n        \"longitude\": {\n          \"type\": \"number\",\n          \"format\": \"double\"\n        }\n      },\n      \"required\": [\n        \"latitude\",\n        \"longitude\"\n      ],\n      \"additionalProperties\": false\n    }",
+    "url": "https://api.weather.gov/points/{latitude},{longitude}",
+    "method": "GET"
+  },
+  {
+    "name": "testBaseDemo",
+    "description": "测试基础类型",
+    "inputSchema": " {\n      \"type\": \"object\",\n      \"properties\": {\n        \"query\": {\n          \"type\": \"string\",\n          \"description\": \"String信息\"\n        }\n      },\n      \"required\": [\n        \"query\"\n      ],\n      \"additionalProperties\": false\n    }"
+  },
+  {
+    "name": "testDtoDemo",
+    "description": "测试dto类型 demo",
+    "inputSchema": "{\n      \"type\": \"object\",\n      \"properties\": {\n        \"user\": {\n          \"type\": \"object\",\n          \"description\": \"User用户集合\"\n        }\n      },\n      \"required\": [\n        \"user\"\n      ],\n      \"additionalProperties\": false\n    }"
+  },
+  {
+    "name": "testListBaseDemo",
+    "description": "测试基础组合类型",
+    "inputSchema": "{\n      \"type\": \"object\",\n      \"properties\": {\n        \"query\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"string\"\n          },\n          \"description\": \"List<Sting>信息\"\n        }\n      },\n      \"required\": [\n        \"query\"\n      ],\n      \"additionalProperties\": false\n    }"
+  },
+  {
+    "name": "testListDtoDemo",
+    "description": "测试dto组合类型 demo",
+    "inputSchema":"{\n      \"type\": \"object\",\n      \"properties\": {\n        \"users\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\"\n          },\n          \"description\": \"List<User>用户集合\"\n        }\n      },\n      \"required\": [\n        \"users\"\n      ],\n      \"additionalProperties\": false\n    }"
+  }
+]
+
