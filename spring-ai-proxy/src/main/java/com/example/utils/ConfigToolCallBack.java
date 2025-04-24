@@ -89,7 +89,7 @@ public class ConfigToolCallBack implements ToolCallback {
         Map<String, Object> toolArguments = extractToolArguments(toolInput);
 
         //Object[] methodArguments = buildMethodArguments(toolArguments, toolContext);
-        Object[] methodArguments = buildConfigMethodArguments(toolArguments, toolContext);
+        Object[] methodArguments = buildConfigMethodArguments(toolArguments, toolContext, toolDefinition);
 
         Object result = callMethod(methodArguments);
 
@@ -129,9 +129,10 @@ public class ConfigToolCallBack implements ToolCallback {
      *
      * @return
      */
-    private Object[] buildConfigMethodArguments(Map<String, Object> toolInputArguments, @Nullable ToolContext toolContext) {
+    private Object[] buildConfigMethodArguments(Map<String, Object> toolInputArguments, @Nullable ToolContext toolContext, ToolDefinition toolDefinition) {
         String rawInputArgument = "";
         try {
+            toolInputArguments.put("toolName", toolDefinition.name());
             rawInputArgument = objectMapper.writeValueAsString(toolInputArguments);
         } catch (JsonProcessingException e) {
             throw new RuntimeException(e);

@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @Data
 public class Book {
 
+    @Schema(description = "书籍ID")
     private Long id;
 
     @NotBlank(message = "书名不能为空")

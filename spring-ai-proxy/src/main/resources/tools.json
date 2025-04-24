@@ -4,7 +4,22 @@
     "description": "Get weather forecast for a specific latitude/longitude",
     "inputSchema": "{\n      \"type\": \"object\",\n      \"properties\": {\n        \"latitude\": {\n          \"type\": \"number\",\n          \"format\": \"double\"\n        },\n        \"longitude\": {\n          \"type\": \"number\",\n          \"format\": \"double\"\n        }\n      },\n      \"required\": [\n        \"latitude\",\n        \"longitude\"\n      ],\n      \"additionalProperties\": false\n    }",
     "url": "https://api.weather.gov/points/{latitude},{longitude}",
-    "method": "GET"
+    "method": "GET",
+    "timeout": "30000",
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "requestBodyResolver": {
+      "map.key1": "body.order",
+      "map.key2": "body.user"
+    },
+    "requestParamResolver": {
+      "map.key1": "query.orderId",
+      "map.key2": "query.userId",
+      "map.key3": "path.petId",
+      "map.latitude": "path.latitude",
+      "map.longitude": "path.longitude"
+    }
   },
   {
     "name": "testBaseDemo",
@@ -24,7 +39,12 @@
   {
     "name": "testListDtoDemo",
     "description": "测试dto组合类型 demo",
-    "inputSchema":"{\n      \"type\": \"object\",\n      \"properties\": {\n        \"users\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\"\n          },\n          \"description\": \"List<User>用户集合\"\n        }\n      },\n      \"required\": [\n        \"users\"\n      ],\n      \"additionalProperties\": false\n    }"
+    "inputSchema": "{\n      \"type\": \"object\",\n      \"properties\": {\n        \"users\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\"\n          },\n          \"description\": \"List<User>用户集合\"\n        }\n      },\n      \"required\": [\n        \"users\"\n      ],\n      \"additionalProperties\": false\n    }"
+  },
+  {
+    "name": "testListDtoDemo2",
+    "description": "测试dto组合类型 demo",
+    "inputSchema": "{\n      \"type\": \"object\",\n      \"properties\": {\n        \"users\": {\n          \"type\": \"array\",\n          \"items\": {\n            \"type\": \"object\"\n          },\n          \"description\": \"List<User>用户集合\"\n        }\n      },\n      \"required\": [\n        \"users\"\n      ],\n      \"additionalProperties\": false\n    }"
   }
 ]
 
